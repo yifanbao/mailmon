@@ -36,17 +36,3 @@ passport.use(
     }
   )
 );
-passport.use(
-  new GithubStrategy(
-    {
-      clientID: keys.githubClientID,
-      clientSecret: keys.githubClientSecret,
-      callbackURL: "/auth/github/callback"
-    },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOrCreate({ githubId: profile.id }).then(() => {
-        return done(null, user);
-      });
-    }
-  )
-);
