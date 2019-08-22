@@ -8,21 +8,28 @@ class SurveyList extends Component {
   }
 
   renderSurveys() {
+    if (!this.props.surveys.length) {
+      return (
+        <div className="progress light-green lighten-3">
+          <div className="indeterminate green darken-2"></div>
+        </div>
+      );
+    }
     return this.props.surveys.reverse().map(survey => {
       return (
-        <div className="card darken-1" key={survey._id}>
+        <div className="card" key={survey._id}>
           <div className="card-content">
             <span className="card-title">{survey.title}</span>
             <p>
               {survey.body}
             </p>
-            <p className="right">
+            <p className="right grey-text lighten-1">
               Sent On: {new Date(survey.dateSent).toLocaleDateString()}
             </p>
           </div>
-          <div className="card-action">
-            <a>Yes: {survey.yes}</a>
-            <a>No: {survey.no}</a>
+          <div className="card-action orange-text">
+            <span style={styles.cardMetaTag}>Yes: {survey.yes}</span>
+            <span style={styles.cardMetaTag}>No: {survey.no}</span>
           </div>
         </div>
       );
@@ -37,6 +44,12 @@ class SurveyList extends Component {
     );
   };
 }
+
+const styles = {
+  cardMetaTag: {
+    marginRight: 15
+  }
+};
 
 function mapStateToProps({ surveys }) {
   return { surveys };

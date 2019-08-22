@@ -9,24 +9,35 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return <li><a href="/auth/google">Login With Google</a></li>;
+        return (
+          <li><a href="/auth/google" className="waves-effect waves-light btn green darken-4 z-depth-0">
+            Login With Google
+          </a></li>
+        );
       default:
         return [
           <li key="1"><Payments /></li>,
           <li key="3" style={{ margin: '0 10px' }}>
+            <i className="material-icons outline left" style={styles.navItemIcon}>monetization_on</i>
             Credits: {this.props.auth.credits}
           </li>,
-          <li key="2"><a href="/api/logout">Logout</a></li>
+          <li key="2">
+            <a href="/api/logout">
+              <i className="material-icons left" style={styles.navItemIcon}>exit_to_app</i>
+              Sign Out
+            </a>
+          </li>
         ];
     }
   }
 
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
+      <nav className="z-depth-0">
+        <div className="nav-wrapper green darken-3" style={styles.navWrapper}>
           <Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo">
             Mailmon
+            <i className="material-icons" style={styles.logoIcon}>send</i>
           </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
@@ -34,6 +45,20 @@ class Header extends Component {
     );
   }
 }
+
+const styles = {
+  navWrapper: {
+    paddingLeft: 15
+  },
+  logoIcon: {
+    marginRight: 5,
+    transform: "rotate(-0.125turn)"
+  },
+  navItemIcon: {
+    marginRight: 5,
+    fontSize: 22
+  }
+};
 
 function mapStateToProps({ auth }) {
   return { auth };
