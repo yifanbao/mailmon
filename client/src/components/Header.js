@@ -35,7 +35,7 @@ class Header extends Component {
     return (
       <nav className="z-depth-0">
         <div className="nav-wrapper green darken-3" style={styles.navWrapper}>
-          <Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo">
+          <Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo logo">
             Mailmon
             <i className="material-icons" style={styles.logoIcon}>send</i>
           </Link>
@@ -52,11 +52,11 @@ const styles = {
   },
   logoIcon: {
     marginRight: 5,
-    transform: "rotate(-0.125turn)"
+    transform: "rotate(-0.125turn)",
+    fontSize: "1.7rem"
   },
   navItemIcon: {
-    marginRight: 5,
-    fontSize: 22
+    marginRight: 5
   }
 };
 

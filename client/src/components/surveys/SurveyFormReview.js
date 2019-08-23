@@ -9,7 +9,7 @@ import * as actions from '../../actions';
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
-      <div key={name}>
+      <div key={name} style={styles.confirmField}>
         <label>{label}</label>
         <div>{formValues[name]}</div>
       </div>
@@ -18,17 +18,27 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
 
   return (
     <div>
-      <h5>Please confirm your entries</h5>
+      <span style={styles.confirmTitle}>Please confirm your entries</span>
       {reviewFields}
-      <button className="yellow darken-3 white-text btn-flat" onClick={onCancel}>
+      <button className="btn-flat yellow darken-3 white-text" onClick={onCancel}>
+        <i className="material-icons left margin-right-5">arrow_back</i>
         Back
       </button>
-      <button className="green white-text btn-flat right" onClick={() => submitSurvey(formValues, history)}>
+      <button className="btn-flat right green darken-2 white-text" onClick={() => submitSurvey(formValues, history)}>
         Send Survey
-        <i className="material-icons right">email</i>
+        <i className="material-icons right margin-left-5">email</i>
       </button>
     </div>
   );
+};
+
+const styles = {
+  confirmTitle: {
+    fontSize: 28
+  },
+  confirmField: {
+    marginBottom: 15
+  }
 };
 
 function mapStateToProps(state) {

@@ -1,0 +1,26 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: rgba(0,0,0,0.87);
+  background: #fafafa;
+}
+/* label focus color */
+input:focus + label {
+  color: #388e3c !important;
+}
+/* label underline focus color */
+input:focus {
+  border-bottom: 1px solid #388e3c !important;
+  box-shadow: 0 1px 0 0 #388e3c !important;
+}
+.logo {
+  font-family: "Lexend Deca", sans-serif !important;
+}
+.card-title {
+  font-weight: 400 !important;
+}
+.margin-left-5 {
+  margin-left: 5px !important;
+}
+.margin-right-5 {
+  margin-right: 5px !important;
+}

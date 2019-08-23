@@ -24,7 +24,11 @@ class SurveyNew extends Component {
             New Survey
           </span>
         </div>
-        {this.renderContent()}
+        <div className="card z-depth-2">
+          <div className="card-content">
+            {this.renderContent()}
+          </div>
+        </div>
       </div>
     );
   }

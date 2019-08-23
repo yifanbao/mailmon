@@ -11,7 +11,7 @@ class SurveyList extends Component {
     if (!this.props.surveys.length) {
       return (
         <div className="progress light-green lighten-3">
-          <div className="indeterminate green darken-2"></div>
+          <div className="indeterminate green darken-2" />
         </div>
       );
     }
